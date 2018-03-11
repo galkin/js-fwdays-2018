@@ -1,0 +1,81 @@
+swagger: '2.0'
+
+info:
+  version: 0.1.0
+  title: Fashion Cloud Cache
+  description: Test task for Fashion Cloud Cache
+
+basePath: /api/v0
+
+produces:
+  - application/json; charset=utf-8
+
+consumes:
+  - application/json; charset=utf-8
+
+paths:
+  /cache:
+    get:
+      summary: returns all stored keys in the cache
+      responses:
+        '200':
+          description: Successfully retrive all stored keys in the cache
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Key'
+    patch:
+      summary: Creates/updates the data for a given key
+      parameters:
+        - in: body
+          name: data
+          required: true
+          schema:
+            $ref: '#/definitions/Data'
+      responses:
+        204:
+          description: Successfully created/updated the data for a given key
+    delete:
+      summary: Removes all keys from the cache
+      responses:
+        204:
+          description: Successfully removed all keys from the cache
+
+  /cache/{key}:
+    get:
+      summary: Returns the cached data for a given key
+      parameters:
+        - $ref: '#/parameters/key'
+      responses:
+        200:
+          description: Successfully retrive the cached data for a given key
+          schema:
+            $ref: '#/definitions/Data'
+    delete:
+      summary: Removes a given key from the cache
+      parameters:
+        - $ref: '#/parameters/key'
+      responses:
+        204:
+          description: Successfully removed a given key from the cache
+
+parameters:
+  key:
+    in: path
+    name: key
+    required: true
+    type: string
+    x-example: key1
+    description: Cache key.
+
+definitions:
+  Key:
+    type: string
+
+  Data:
+    type: object
+    properties:
+      key:
+        type: string
+      value:
+        type: string

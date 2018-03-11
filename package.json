@@ -1,0 +1,26 @@
+{
+  "name": "fashion-cloud-task",
+  "version": "0.1.0",
+  "description": "Test task for fashion cload",
+  "keywords": [],
+  "license": "UNLICENSED",
+  "author": "Nikita Galkin",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard 'src/**'",
+    "lintApi": "dredd api.yaml http://localhost -y ",
+    "lintFix": "standard 'src/**' --fix",
+    "start": "node src/index.js",
+    "test": "npm run lintApi && npm run lint"
+  },
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "dotenv-safe": "^5.0.1",
+    "express": "^4.16.2",
+    "mongodb": "^2.2.35"
+  },
+  "devDependencies": {
+    "dredd": "^5.1.4",
+    "standard": "^11.0.0"
+  }
+}

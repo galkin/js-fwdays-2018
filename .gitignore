@@ -1,0 +1,41 @@
+# OS & tools specific
+.DS_Store
+.idea
+.tmp
+.vscode
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Optional npm cache directory
+.npm
+
+# Output of 'npm pack'
+*.tgz
+qlmm.tar.gz
+
+# Dependency directories
+node_modules/
+
+# Test coverage directory
+coverage
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# dotenv environment variables file
+.env
+
+# docker-compose
+data
