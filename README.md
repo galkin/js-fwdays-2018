@@ -21,7 +21,7 @@ Check `.env.example` file, create `.env` or set environments variables.
 ## Testing Approach
 
 - [standart](http://eslint.org) with [standard](https://standardjs.com) is used for checking code style and JS best practice..
-- [dredd](https://dredd.readthedocs.io) is used for swagger and rest api testing. 
+- [dredd](https://dredd.readthedocs.io) is used for swagger and rest api testing.
 
 ## Development Approach
 
@@ -43,3 +43,9 @@ We use `bunyan`
 ### Bootstraping and Gracefull shatdown
 `app.js` is implemented for Bootstraping and Gracefull shatdown. Can be reused for tests.
 
+## Additional features
+
+MongoDB used for this features. 
+- [TTL](https://docs.mongodb.com/manual/tutorial/expire-data/)
+- [capped](https://docs.mongodb.com/manual/core/capped-collections/index.html)
+- @TODO: move from db.js to migrations. How we will implement them?

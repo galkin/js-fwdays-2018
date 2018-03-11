@@ -17,7 +17,8 @@ module.exports = {
   cache: {
     defaultValueLength: parseInt(process.env.CACHE_DEFAULT_VALUE_LENGTH, 0),
     maxAmount: parseInt(process.env.CACHE_MAX_AMOUNT, 0),
-    collectionName: process.env.CACHE_COLLECTION_NAME
+    collectionName: process.env.CACHE_COLLECTION_NAME,
+    ttl: parseInt(process.env.CACHE_TTL, 0)
   },
   db: {
     uri: process.env.MONGODB_CONNECTION_STRING
