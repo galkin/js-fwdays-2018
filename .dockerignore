@@ -16,3 +16,4 @@ npm-debug.log
 .nyc_output
 cassettes
 coverage
+data

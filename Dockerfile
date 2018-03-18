@@ -15,4 +15,4 @@ RUN npm install --production
 
 ADD . /microservice
 
-ENTRYPOINT ["npm", "start"]
+ENTRYPOINT ["node", "src/index.js"]
