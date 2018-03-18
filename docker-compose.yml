@@ -1,8 +1,26 @@
-version: '2'
+version: '3'
 services:
-    mongodb:
+    api:
+        build: .
+        depends_on:
+          - db
+        links:
+          - db
+        environment:
+          - NODE_ENV=development
+          - LOG_LEVEL=trace
+          - HTTP_PORT=8080
+          - SHUTDOWN_TIMEOUT=1000
+          - CACHE_DEFAULT_VALUE_LENGTH=12
+          - CACHE_MAX_AMOUNT=3
+          - CACHE_TTL=30
+          - CACHE_COLLECTION_NAME=cache
+          - MONGODB_CONNECTION_STRING=mongodb://db:27017/db-cache
+        ports:
+            - 8080:8080
+    db:
         image: mongo:latest
-        container_name: "mongodb"
+        container_name: "db"
         environment:
           - MONGO_DATA_DIR=/data/db
           - MONGO_LOG_DIR=/dev/null
