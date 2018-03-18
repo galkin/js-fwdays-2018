@@ -6,7 +6,7 @@ const {getCollection} = require('../boundaries/db')
 
 async function get (key) {
   let data = await getCollection(settings.cache.collectionName).findOne({_id: key})
-  let value = data ? data.value : undefined;
+  let value = data ? data.value : undefined
   if (!value) {
     value = randomBytes(settings.cache.defaultValueLength).toString('hex')
     await set(key, value)

@@ -1,11 +1,12 @@
 version: '3'
 services:
-    api:
+    fwday_app:
         build: .
+        container_name: "fwday_app"
         depends_on:
-          - db
+          - fwday_db
         links:
-          - db
+          - fwday_db
         environment:
           - NODE_ENV=development
           - LOG_LEVEL=trace
@@ -15,12 +16,12 @@ services:
           - CACHE_MAX_AMOUNT=3
           - CACHE_TTL=30
           - CACHE_COLLECTION_NAME=cache
-          - MONGODB_CONNECTION_STRING=mongodb://db:27017/db-cache
+          - MONGODB_CONNECTION_STRING=mongodb://fwday_db:27017/db-cache
         ports:
             - 8080:8080
-    db:
+    fwday_db:
         image: mongo:latest
-        container_name: "db"
+        container_name: "fwday_db"
         environment:
           - MONGO_DATA_DIR=/data/db
           - MONGO_LOG_DIR=/dev/null
